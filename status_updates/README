@@ -1,0 +1,6 @@
+Sean Deneen
+Comp 20 Lab 5
+
+This is a status update website that dynamically adds messages as the user
+inputs them. It prepends each message with a timestamp and adds the message
+to the top of a list that contains the message history. 
