@@ -46,4 +46,6 @@ function drawBirds(ctx, image) {
 	ctx.drawImage(image, 0, 120, 34, 25, 100, 100, 68, 50); //Scaled 2x
 	ctx.drawImage(image, 300, 157, 34, 30, 200, 100, 68, 60); //Scaled 2x
 	ctx.drawImage(image, 212, 156, 28, 32, 300, 100, 56, 64); //Scaled 2x
+	ctx.drawImage(image, 81, 197, 31, 31, 400, 100, 62, 62); //Scaled 2x
+	ctx.drawImage(image, 340, 118, 33, 29, 500, 100, 64, 58); //Scaled 2x
 }
