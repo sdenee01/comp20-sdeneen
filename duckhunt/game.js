@@ -31,11 +31,11 @@ function drawSky(ctx) {
 }
 
 function drawTree(ctx, image) {
-	ctx.drawImage(image, 0, 273, 77, 123, 50, 260, 144, 246);
+	ctx.drawImage(image, 0, 273, 77, 123, 50, 260, 144, 246); //Scaled 2x
 }
 
 function drawDirtAndGrass(ctx, image) {
-	ctx.drawImage(image, 0, 716, 900, 184, 0, 436+4/9, 800, 163+5/9);
+	ctx.drawImage(image, 0, 716, 900, 184, 0, 436+4/9, 800, 163+5/9); //fit to different sized screen
 }
 
 function drawDog(ctx, image) {
