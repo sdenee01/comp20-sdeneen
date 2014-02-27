@@ -8,6 +8,10 @@ td + td {
 	border-left: 1px solid;
 }
 
+tr {
+	border-bottom: 6px solid;
+}
+
 tr + tr {
-	border-bottom: 2px solid;
+	border-bottom: 4px solid;
 }
