@@ -9,14 +9,14 @@ function getMyLocation() {
             console.log("Call before navigator.geolocation");
             navigator.geolocation.getCurrentPosition(function(position) {
                 console.log("Got location");
+                lat = position.coords.latitude;
+                lng = position.coords.longitude;
                 var mapOptions = {
                     center: new google.maps.LatLng(lat, lng),
                     zoom: 8
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas"),
                                               mapOptions);
-                lat = position.coords.latitude;
-                lng = position.coords.longitude;
                 elem.innerHTML = "<h1>You are in " + lat + ", " + lng + "</h1>";
             });
             console.log("Made the call to get location");
