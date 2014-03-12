@@ -1,0 +1,29 @@
+table {
+	border: 1px solid;
+	border-collapse: collapse;
+	background-color: teal;
+	color: yellow;
+	font-family: "lucida console";
+	border-color: orange;
+}
+
+
+td + td {
+	border-left: 1px solid;
+	border-color: orange;
+}
+
+tr {
+	border-bottom: 6px solid;
+	border-color: orange;
+}
+
+tr + tr {
+	border-bottom: 4px solid;
+	border-color: orange;
+}
+
+
+body {
+	background-color: black;
+}

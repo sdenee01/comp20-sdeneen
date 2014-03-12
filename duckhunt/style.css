@@ -1,0 +1,14 @@
+#game_div{
+    text-align: center;
+}
+
+#bigImage{
+	display: none;
+}
+
+canvas {
+    background-color: #87CEEB;
+}
+
+body {
+}
