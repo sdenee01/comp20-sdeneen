@@ -1,4 +1,4 @@
-@media screen and (min-width: 993px) {
+@media screen and (min-width: 992px) {
 	body {
 		background-image: url("omfgdogs.gif");
 	}
@@ -11,7 +11,7 @@ a {
 	position: absolute;
 	bottom: 0;
 	right: 16px;
-	font-size: 48px;
+	font-size: 36px;
 	color: maroon;
 	font-weight: bold;
 	font-family: sans-serif;
