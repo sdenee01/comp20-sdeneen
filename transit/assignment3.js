@@ -1,6 +1,10 @@
+lat = -99999;
+lng = -99999;
+
 function initialize() {
+    getMyLocation();
 	var mapOptions = {
-		center: new google.maps.LatLng(-34.397, 150.644),
+		center: new google.maps.LatLng(lat, lng),
         zoom: 8
     };
     var map = new google.maps.Map(document.getElementById("map-canvas"),
@@ -8,12 +12,10 @@ function initialize() {
 }
 
 
-//google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);
 
 
-onload = function getMyLocation() {
-        lat = -99999;
-        lng = -99999;
+function getMyLocation() {
         elem = document.getElementById("loc");
         if (navigator.geolocation) {
             // the navigator.geolocation object is supported on your browser
