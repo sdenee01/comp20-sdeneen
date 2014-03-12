@@ -10,7 +10,7 @@ function getMyLocation() {
             navigator.geolocation.getCurrentPosition(function(position) {
                 console.log("Got location");
                 var mapOptions = {
-                    center: new google.maps.LatLng(-34.397, 150.644),
+                    center: new google.maps.LatLng(lat, lng),
                     zoom: 8
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas"),
@@ -26,5 +26,3 @@ function getMyLocation() {
             alert("Geolocation is not supported by your web browser.  What a shame!");
         }
     }
-
-    console.log("at the end");
