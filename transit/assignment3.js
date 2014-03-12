@@ -26,3 +26,5 @@ function getMyLocation() {
             alert("Geolocation is not supported by your web browser.  What a shame!");
         }
     }
+
+    console.log("at the end");
