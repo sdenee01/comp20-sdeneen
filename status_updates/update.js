@@ -14,7 +14,7 @@ function updateStatus() {
 	var message = getDateAndTime() + " - " + document.getElementById("msg").value;
 	p.appendChild(document.createTextNode(message));
 
-	var output = document.getElementById("msgs");
+	var output = document.getElementById("status");
 	var first = output.firstChild;
 	output.insertBefore(p, first);
 }
