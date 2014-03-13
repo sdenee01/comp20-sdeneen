@@ -21,6 +21,10 @@ function getMyLocation() {
                     map: map,
                     title: "You are here"
                 })
+                var infowindow = new google.maps.InfoWindow({
+                    content: "You are here!"
+                })
+                infowindow.open(map, marker);
             });
         }
         else {
