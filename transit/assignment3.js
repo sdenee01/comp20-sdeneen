@@ -36,10 +36,10 @@ function getMyLocation() {
 
 
 function getTData() {
-    var request = new XMLHttpRequest();
+    request = new XMLHttpRequest();
     request.open("GET", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
     request.send(null);
-    request.onreadystatechange = callback;
+    request.onreadystatechange = callback();
 }
 
 
