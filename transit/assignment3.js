@@ -9,12 +9,18 @@ function getMyLocation() {
             navigator.geolocation.getCurrentPosition(function(position) {
                 lat = position.coords.latitude;
                 lng = position.coords.longitude;
+                myLatLng = new google.maps.LatLng(lat, lng);
                 var mapOptions = {
-                    center: new google.maps.LatLng(lat, lng),
+                    center: myLatLng,
                     zoom: 8
                 };
                 var map = new google.maps.Map(document.getElementById("map-canvas"),
                                               mapOptions);
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: "You are here"
+                })
             });
         }
         else {
