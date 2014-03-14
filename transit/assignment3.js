@@ -123,11 +123,13 @@ function showTStops()
                     }
                 }
             }
+            console.log(LatLngs);
+            console.log(LatLngs2);
             if (color == "blue") {
                 polyline = new google.maps.Polyline({
                     path: LatLngs,
                     strokeColor: '#0000FF',
-                    strokeWeight: 5
+                    strokeWeight: 3
                 });
 
                 polyline.setMap(map);
@@ -136,7 +138,7 @@ function showTStops()
                 polyline = new google.maps.Polyline({
                     path: LatLngs,
                     strokeColor: '#FFA500',
-                    strokeWeight: 5
+                    strokeWeight: 3
                 });
 
                 polyline.setMap(map);
@@ -145,12 +147,12 @@ function showTStops()
                 polyline = new google.maps.Polyline({
                     path: LatLngs,
                     strokeColor: '#FF0000',
-                    strokeWeight: 5
+                    strokeWeight: 3
                 });
                 polyline2 = new google.maps.Polyline({
                     path: LatLngs2,
                     strokeColor: '#FF0000',
-                    strokeWeight: 5
+                    strokeWeight: 3
                 });
 
                 polyline.setMap(map);
