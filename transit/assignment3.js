@@ -88,14 +88,14 @@ function showTStops()
                     counter++;
                 }
             }
-            console.log(LatLngs);
             polyline = new google.maps.Polyline({
                 path: LatLngs,
-                geodesic: true,
                 strokeColor: '#FF0000',
                 strokeWeight: 2
-            })
+            });
+
             polyline.setMap(map);
+            console.log(polyline.getPath());
 
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
