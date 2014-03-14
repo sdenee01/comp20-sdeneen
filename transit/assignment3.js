@@ -220,8 +220,8 @@ function getMinStation()
     */
     
     for (var m in markers) {
-        console.log(markers[m].getPosition.latitude);
-        console.log(markers[m].getPosition.longitude);
+        console.log(markers[m].position.lat());
+        console.log(markers[m].position.lng());
         distance = haversine(myLatLng.latitude, myLatLng.longitude, markers[m].position.lat(), markers[m].position.lng());
         console.log(markers[m].title + " : " + distance);
         console.log(min);
