@@ -161,10 +161,13 @@ function showTStops()
 
                 polyline.setMap(map);
                 polyline2.setMap(map);
+
+                getMinStation();
             }
 
 
-            var min = 0;
+            var min = haversine(myLatLng.lat(), myLatLng.lng(), markers[0].getPosition.lat(), markers[0].getPosition.lng());
+            var minStation = markers[0].title;
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
                     content = "<h1>" + this.title + "</h1>";
@@ -180,8 +183,6 @@ function showTStops()
                     content += '</table>';
                     infowindow.setContent(content);
                     infowindow.open(map, this);
-
-
                 });
             }
         }
@@ -193,4 +194,34 @@ function createInfoWindowTable(i, j)
     content += '<tr><td>' + data['line'] + '</td><td>' + data["schedule"][i]["TripID"] +
                '</td><td>' + data["schedule"][i]["Destination"] + '</td><td>' +
                 data["schedule"][i]["Predictions"][j].Seconds + '</td></tr>';
+}
+
+
+function getMinStation()
+{
+    for (var m in markers) {
+        distance = haversine(myLatLng.lat(), myLatLng.lng(), markers[m].getPosition.lat(), markers[m].getPosition.lng());
+
+        if (distance < min) {
+        min = distance;
+        minStation = markers[m].title;
+        }
+    }
+    yourLocContent = "The closest T station to you is " + minStation + " which is about " + min + " km away";
+    infowindow.setContent(yourLocContent);
+}
+
+function haversine(lat1, lon1, lat2, lon2)
+{
+    var R = 6371; // km
+    var dLat = (lat2-lat1).toRad();
+    var dLon = (lon2-lon1).toRad();
+    var lat1 = lat1.toRad();
+    var lat2 = lat2.toRad();
+
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c;
+    return d;
 }
