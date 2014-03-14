@@ -115,7 +115,6 @@ function createInfoWindowTable(i, j)
     content += '<tr><td>' + data[i]['line'] + '</td><td>' + data[i]["schedule"]["TripID"] +
                '</td><td>' + data[i]["schedule"]["Destination"] + '</td><td>' +
                 data[i]["schedule"]["Predictions"][j].Seconds + '</td></tr>';
-    });
     content += '</table>';
 
 }
