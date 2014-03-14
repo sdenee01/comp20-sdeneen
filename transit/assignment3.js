@@ -88,6 +88,7 @@ function showTStops()
                                 position: LatLngs2[counter2],
                                 map: map,
                                 title: stops[i].name
+                                icon: "MBTA_Logo";
                             });
                             counter2++;
                         }
@@ -98,6 +99,7 @@ function showTStops()
                                 position: LatLngs[counter],
                                 map: map,
                                 title: stops[i].name
+                                icon: "MBTA_Logo";
                             });
                             counter++;
                             counter2++;
@@ -108,6 +110,7 @@ function showTStops()
                                 position: LatLngs[counter],
                                 map: map,
                                 title: stops[i].name
+                                icon: "MBTA_Logo";
                             });
                             counter++;
                         }
@@ -118,13 +121,13 @@ function showTStops()
                             position: LatLngs[counter],
                             map: map,
                             title: stops[i].name
+                            icon: "MBTA_Logo";
                         });
                         counter++;
                     }
                 }
             }
-            console.log(LatLngs);
-            console.log(LatLngs2);
+
             if (color == "blue") {
                 polyline = new google.maps.Polyline({
                     path: LatLngs,
