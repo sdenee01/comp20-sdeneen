@@ -64,8 +64,8 @@ function readData()
             stopsRequest.onreadystatechange = showTStops;
         }
         else {
-            //HANDLE ERROR HERE! (add to infowindow?)
-            console.log("BAD DATA");
+            infowindow.setContent("ERROR: No data available. Try refreshing.");
+            infowindow.open(map, marker);
         }
     }
 }
@@ -197,31 +197,8 @@ function createInfoWindowTable(i, j)
 
 
 function getMinStation()
-{
-    /*
-    if (color != "red") {
-        for (var i in LatLngs) {
-            distance = haversine(myLatLng.latitude, myLatLng.longitude, LatLngs[i].latitude, LatLngs[i].longitude);
-            if (distance < min) {
-                min = distance;
-                minStation = markers[i].title;
-            }
-        }
-    }
-    else {
-        for (var i in LatLngs2) {
-            distance = haversine(myLatLng.latitude, myLatLng.longitude, LatLngs2[i].latitude, LatLngs2[i].longitude);
-            if (distance < min) {
-                min = distance;
-                minStation = markers[m].title;
-            }
-        }
-    }
-    */
-    
+{  
     for (var m in markers) {
-        //console.log(markers[m].position.lat());
-        //console.log(markers[m].position.lng());
         distance = haversine(myLatLng.lat(), myLatLng.lng(), markers[m].position.lat(), markers[m].position.lng());
         console.log(markers[m].title + " : " + distance);
         console.log(min);
@@ -238,11 +215,6 @@ function getMinStation()
 
 function haversine(lat1, lon1, lat2, lon2)
 {
-    //console.log("lat1: " + lat1 + " lon1: " + lon1);
-    //console.log("lat2: " + lat2 + " lon2: " + lon2);
-    //console.log("");
-
-
     Number.prototype.toRad = function() {
         return this * Math.PI / 180;
     }
