@@ -87,10 +87,35 @@ function showTStops()
             }
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
-                            infowindow.setContent(this.title);
-                            infowindow.open(map, this);
+
+                    if (data.length > 0) {
+                        content += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
+                        for (var i = 0; i < data.length; i++) {
+                            for (var j = 0; j < data[i]["schedule"]["Predictions"].length) {
+                                if (data[i].line == color && data[i]["schedule"]["Predictions"][j].Stop == markers[m].title) {
+                                    createInfoWindowTable(i, j);
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        content += "<p>No schedule of upcoming trains for this station.</p>";
+                    }
+
+                    infowindow.setContent(content);
+                    infowindow.open(map, this);
                 });
             }
         }
     }
+}
+
+function createInfoWindowTable(i, j)
+{
+    content += '<tr><td>' + data[i]['line'] + '</td><td>' + data[i]["schedule"]["TripID"] +
+               '</td><td>' + data[i]["schedule"]["Destination"] + '</td><td>' +
+                data[i]["schedule"]["Predictions"][j].Seconds + '</td></tr>';
+    });
+    content += '</table>';
+
 }
