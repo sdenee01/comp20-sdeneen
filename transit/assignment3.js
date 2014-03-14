@@ -93,6 +93,18 @@ function showTStops()
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
                     content = "<h1>" + this.title + "</h1>";
+                    for (var i = 0; i < data.length; i++) {
+                        for (var j = 0; j < data[i]["schedule"]["Predictions"].length; j++) {
+                            if (data[i]["schedule"]["Predictions"][j].Stop == this.title) {
+                                //FOUND A MATCH TO ADD TO TABLE
+                                createInfoWindowTable(i, j);
+                            }
+                        }
+                    }
+
+
+                    /*
+                    content = "<h1>" + this.title + "</h1>";
                     if (data[m]["schedule"]["Predictions"].length > 0) {
                         content = '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
                         for (var j = 0; j < data[m]["schedule"]["Predictions"].length; j++) {
@@ -104,9 +116,10 @@ function showTStops()
                     else {
                         content += "<p>No schedule of upcoming trains for this station.</p>";
                     }
-
+                    */
                     infowindow.setContent(content);
                     infowindow.open(map, this);
+
                 });
             }
         }
