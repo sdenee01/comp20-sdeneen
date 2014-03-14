@@ -76,23 +76,25 @@ function showTStops()
             stops = JSON.parse(stopsRequest.responseText);
             markers = new Array(stops.length);
             LatLngs = new Array(stops.length);
+            var counter = 0;
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
-                    LatLngs[i] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                    LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                     markers[i] = new google.maps.Marker({
-                        position: LatLngs[i],
+                        position: LatLngs[counter],
                         map: map,
                         title: stops[i].name
                     });
-                    polyline = new google.maps.Polyline({
-                        path: LatLngs,
-                        geodesic: true,
-                        strokeColor: '#FF0000',
-                        strokeWeight: 2
-                    })
-                    polyline.setMap(map);
+                    counter++;
                 }
             }
+            polyline = new google.maps.Polyline({
+                path: LatLngs,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeWeight: 2
+            })
+            polyline.setMap(map);
 
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
