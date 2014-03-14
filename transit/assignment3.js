@@ -85,10 +85,12 @@ function showTStops()
                     });
                 }
             }
-            google.maps.event.addListener(markers[i], 'click', function() {
-                        infowindow.setContent(this.title);
-                        infowindow.open(map, this);
-            });
+            for (var m in markers) {
+                google.maps.event.addListener(markers[m], 'click', function() {
+                            infowindow.setContent(this.title);
+                            infowindow.open(map, this);
+                });
+            }
         }
     }
 }
