@@ -198,14 +198,16 @@ function createInfoWindowTable(i, j)
 
 function getMinStation()
 {
-    for (var i in LatLngs) {
-        distance = haversine(myLatLng.latitude, myLatLng.longitude, LatLngs[i].latitude, LatLngs[i].longitude);
-        if (distance < min) {
-            min = distance;
-            minStation = markers[m].title;
+    if (color != "red") {
+        for (var i in LatLngs) {
+            distance = haversine(myLatLng.latitude, myLatLng.longitude, LatLngs[i].latitude, LatLngs[i].longitude);
+            if (distance < min) {
+                min = distance;
+                minStation = markers[i].title;
+            }
         }
     }
-    if (color == "red") {
+    else {
         for (var i in LatLngs2) {
             distance = haversine(myLatLng.latitude, myLatLng.longitude, LatLngs2[i].latitude, LatLngs2[i].longitude);
             if (distance < min) {
