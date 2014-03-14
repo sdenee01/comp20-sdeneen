@@ -88,14 +88,24 @@ function showTStops()
                     counter++;
                 }
             }
-            polyline = new google.maps.Polyline({
-                path: LatLngs,
-                strokeColor: '#FF0000',
-                strokeWeight: 2
-            });
+            if (color == "blue") {
+                polyline = new google.maps.Polyline({
+                    path: LatLngs,
+                    strokeColor: '#0000FF',
+                    strokeWeight: 2
+                });
 
-            polyline.setMap(map);
-            console.log(polyline.getPath());
+                polyline.setMap(map);
+            }
+            else if (color == "orange") {
+                polyline = new google.maps.Polyline({
+                    path: LatLngs,
+                    strokeColor: '#FFA500',
+                    strokeWeight: 2
+                });
+
+                polyline.setMap(map);
+            }
 
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
