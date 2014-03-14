@@ -85,7 +85,7 @@ function showTStops()
                     });
                 
                     infowindow.setContent(stops[i].name);
-                    google.maps.event.addListener(markers[i], 'click', function(i) {
+                    google.maps.event.addListener(markers[i], 'click', function() {
                         infowindow.open(map, markers[i]);
                     });
                 }
