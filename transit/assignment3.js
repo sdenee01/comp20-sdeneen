@@ -102,10 +102,3 @@ function showTStops()
         }
     }
 }
-    
-
-
-
-
-
-}
