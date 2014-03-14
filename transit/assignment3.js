@@ -83,6 +83,7 @@ function showTStops()
                 if (stops[i].line == color) {
                     if (color == "red") {
                         if (i > 16) {
+                            console.log("in  > 16");
                             LatLngs2[counter2] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                             markers[i] = new google.maps.Marker({
                                 position: LatLngs2[counter2],
@@ -92,6 +93,7 @@ function showTStops()
                             counter2++;
                         }
                         else if (i == 11) {
+                            console.log("in  == 11");
                             LatLngs2[counter2] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                             LatLngs[counter] = LatLngs2[counter2];
                             markers[i] = new google.maps.Marker({
@@ -103,6 +105,7 @@ function showTStops()
                             counter2++;
                         }
                         else {
+                            console.log("in else");
                             LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                             markers[i] = new google.maps.Marker({
                                 position: LatLngs[counter],
