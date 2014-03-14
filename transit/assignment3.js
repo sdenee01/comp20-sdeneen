@@ -85,8 +85,10 @@ function showTStops()
                     });
                 }
             }
-            console.log("MARKERS: " + markers);
-            console.log("DATA: " + data);
+            console.log("MARKERS: ");
+            console.log(markers);
+            console.log("DATA: ");
+            console.log(data);
 
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
