@@ -75,14 +75,16 @@ function showTStops()
         if (stopsRequest.status == 200) {
             stops = JSON.parse(stopsRequest.responseText);
             markers = new Array(stops.length);
+            LatLngs = new Array(stops.length);
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
-                    LatLng = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                    LatLngs[i] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                     markers[i] = new google.maps.Marker({
-                        position: LatLng,
+                        position: LatLngs[i],
                         map: map,
                         title: stops[i].name
                     });
+
                 }
             }
 
