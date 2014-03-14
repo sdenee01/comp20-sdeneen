@@ -87,7 +87,7 @@ function showTStops()
                     infowindows[i] = new google.maps.InfoWindow({
                         content: stops[i].name
                     });
-                    google.maps.event.addListener(markers[i], 'click', function() {
+                    google.maps.event.addListener(markers[i], 'click', function(i) {
                         infowindows[i].open(map, markers[i]);
                     });
                 }
