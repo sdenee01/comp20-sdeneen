@@ -99,23 +99,6 @@ function showTStops()
                         }
                     }
                     content += '</table>';
-
-
-                    /*
-                    content = "<h1>" + this.title + "</h1>";
-                    if (data[m]["schedule"]["Predictions"].length > 0) {
-                        content = '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
-                        for (var j = 0; j < data[m]["schedule"]["Predictions"].length; j++) {
-                            if (data[m].line == color && data[m]["schedule"]["Predictions"][j].Stop == this.title) {
-                                createInfoWindowTable(m, j);
-                            }
-                        }
-                    }
-                    else {
-                        content += "<p>No schedule of upcoming trains for this station.</p>";
-                    }
-                    */
-                    console.log(content);
                     infowindow.setContent(content);
                     infowindow.open(map, this);
 

@@ -11,3 +11,7 @@ body {
 #map-canvas {
 	height: 100%;
 }
+
+table {
+	border-style: 1px;
+}
