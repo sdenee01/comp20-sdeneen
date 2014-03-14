@@ -36,7 +36,7 @@ function getMyLocation()
         alert("Geolocation is not supported by your web browser.  What a shame!");
     }
 
-    getTData();
+    //getTData();
 }
 
 
