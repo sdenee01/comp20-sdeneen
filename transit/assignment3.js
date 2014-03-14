@@ -98,7 +98,7 @@ function showTStops()
                         LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                     }
 
-                    }
+                    
                     markers[i] = new google.maps.Marker({
                         position: LatLngs[counter],
                         map: map,
