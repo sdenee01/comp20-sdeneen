@@ -166,7 +166,7 @@ function showTStops()
             }
 
 
-            var min = haversine(myLatLng.lat(), myLatLng.lng(), markers[0].getPosition.lat(), markers[0].getPosition.lng());
+            var min = haversine(myLatLng.latitude, myLatLng.longitude, markers[0].getPosition.latitude, markers[0].getPosition.longitude;
             var minStation = markers[0].title;
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
@@ -200,7 +200,7 @@ function createInfoWindowTable(i, j)
 function getMinStation()
 {
     for (var m in markers) {
-        distance = haversine(myLatLng.lat(), myLatLng.lng(), markers[m].getPosition.lat(), markers[m].getPosition.lng());
+        distance = haversine(myLatLng.latitude, myLatLng.longitude, markers[m].getPosition.latitude, markers[m].getPosition.longitude;
 
         if (distance < min) {
         min = distance;
