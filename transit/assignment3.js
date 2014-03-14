@@ -73,11 +73,10 @@ function showTStops()
     if (stopsRequest.readyState == 4) {
         if (stopsRequest.status == 200) {
             stops = JSON.parse(stopsRequest.responseText);
-            markerCounter = 0;
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
                     LatLng = new google.maps.LatLng(stops[i].lat, stops[i].lng);
-                    markers[markerCounter] = new google.maps.Marker({
+                    markers[i] = new google.maps.Marker({
                         position: LatLng,
                         map: map,
                         title: stops[i].name
@@ -86,8 +85,8 @@ function showTStops()
                     var infowindow = new google.maps.InfoWindow({
                         content: stops[i].name
                     });
-                    google.maps.event.addListener(markers[markerCounter], 'click', function() {
-                        infowindow.open(map,markers[markerCounter]);
+                    google.maps.event.addListener(markers[i], 'click', function() {
+                        infowindow.open(map,markers[i]);
                     });
                 }
             }
