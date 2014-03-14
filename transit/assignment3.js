@@ -91,7 +91,7 @@ function showTStops()
                     if (data.length > 0) {
                         content += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
                         for (var i = 0; i < data.length; i++) {
-                            for (var j = 0; j < data[i]["schedule"]["Predictions"].length) {
+                            for (var j = 0; j < data[i]["schedule"]["Predictions"].length; j++) {
                                 if (data[i].line == color && data[i]["schedule"]["Predictions"][j].Stop == markers[m].title) {
                                     createInfoWindowTable(i, j);
                                 }
