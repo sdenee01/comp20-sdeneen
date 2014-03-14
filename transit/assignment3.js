@@ -220,11 +220,11 @@ function getMinStation()
     */
     
     for (var m in markers) {
-        console.log(markers[m].position.lat());
-        console.log(markers[m].position.lng());
+        //console.log(markers[m].position.lat());
+        //console.log(markers[m].position.lng());
         distance = haversine(myLatLng.latitude, myLatLng.longitude, markers[m].position.lat(), markers[m].position.lng());
-        console.log(markers[m].title + " : " + distance);
-        console.log(min);
+        //console.log(markers[m].title + " : " + distance);
+        //console.log(min);
         if (distance < min) {
             min = distance;
             minStation = markers[m].title;
@@ -238,6 +238,11 @@ function getMinStation()
 
 function haversine(lat1, lon1, lat2, lon2)
 {
+    console.log("lat1: " + lat1 + " lon1: " + lon1);
+    console.log("lat2: " + lat2 + " lon2: " + lon2);
+    console.log("");
+
+
     Number.prototype.toRad = function() {
         return this * Math.PI / 180;
     }
