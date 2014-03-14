@@ -166,8 +166,8 @@ function showTStops()
             }
 
 
-            var min = haversine(myLatLng.latitude, myLatLng.longitude, markers[0].getPosition.latitude, markers[0].getPosition.longitude);
-            var minStation = markers[0].title;
+            min = haversine(myLatLng.latitude, myLatLng.longitude, markers[0].getPosition.latitude, markers[0].getPosition.longitude);
+            minStation = markers[0].title;
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
                     content = "<h1>" + this.title + "</h1>";
