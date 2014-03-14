@@ -73,51 +73,9 @@
   },
   {
     "line":"orange",
-    "name":"Back Bay",
-    "lat":42.34735,
-    "lng":-71.075727
-  },
-  {
-    "line":"orange",
-    "name":"Chinatown",
-    "lat":42.352547,
-    "lng":-71.062752
-  },
-  {
-    "line":"orange",
-    "name":"Community College",
-    "lat":42.373622,
-    "lng":-71.06953300000001
-  },
-  {
-    "line":"orange",
-    "name":"Downtown Crossing",
-    "lat":42.355518,
-    "lng":-71.060225
-  },
-  {
-    "line":"orange",
-    "name":"Forest Hills",
-    "lat":42.300523,
-    "lng":-71.113686
-  },
-  {
-    "line":"orange",
-    "name":"Green Street",
-    "lat":42.310525,
-    "lng":-71.10741400000001
-  },
-  {
-    "line":"orange",
-    "name":"Haymarket",
-    "lat":42.363021,
-    "lng":-71.05829
-  },
-  {
-    "line":"orange",
-    "name":"Jackson Square",
-    "lat":42.323132,
-    "lng":-71.099592
+    "name":"Oak Grove",
+    "lat":42.43668,
+    "lng":-71.07109699999999
   },
   {
     "line":"orange",
@@ -127,45 +85,9 @@
   },
   {
     "line":"orange",
-    "name":"Mass Ave",
-    "lat":42.341512,
-    "lng":-71.083423
-  },
-  {
-    "line":"orange",
-    "name":"North Station",
-    "lat":42.365577,
-    "lng":-71.06129
-  },
-  {
-    "line":"orange",
-    "name":"Oak Grove",
-    "lat":42.43668,
-    "lng":-71.07109699999999
-  },
-  {
-    "line":"orange",
-    "name":"Roxbury Crossing",
-    "lat":42.331397,
-    "lng":-71.095451
-  },
-  {
-    "line":"orange",
-    "name":"Ruggles",
-    "lat":42.336377,
-    "lng":-71.088961
-  },
-  {
-    "line":"orange",
-    "name":"State Street",
-    "lat":42.358978,
-    "lng":-71.057598
-  },
-  {
-    "line":"orange",
-    "name":"Stony Brook",
-    "lat":42.317062,
-    "lng":-71.104248
+    "name":"Wellington",
+    "lat":42.40237,
+    "lng":-71.077082
   },
   {
     "line":"orange",
@@ -175,15 +97,93 @@
   },
   {
     "line":"orange",
+    "name":"Community College",
+    "lat":42.373622,
+    "lng":-71.06953300000001
+  },
+  {
+    "line":"orange",
+    "name":"North Station",
+    "lat":42.365577,
+    "lng":-71.06129
+  },
+  {
+    "line":"orange",
+    "name":"Haymarket",
+    "lat":42.363021,
+    "lng":-71.05829
+  },
+  {
+    "line":"orange",
+    "name":"State Street",
+    "lat":42.358978,
+    "lng":-71.057598
+  },
+  {
+    "line":"orange",
+    "name":"Downtown Crossing",
+    "lat":42.355518,
+    "lng":-71.060225
+  },
+  {
+    "line":"orange",
+    "name":"Chinatown",
+    "lat":42.352547,
+    "lng":-71.062752
+  },
+  {
+    "line":"orange",
     "name":"Tufts Medical",
     "lat":42.349662,
     "lng":-71.063917
   },
   {
     "line":"orange",
-    "name":"Wellington",
-    "lat":42.40237,
-    "lng":-71.077082
+    "name":"Back Bay",
+    "lat":42.34735,
+    "lng":-71.075727
+  },
+  {
+    "line":"orange",
+    "name":"Mass Ave",
+    "lat":42.341512,
+    "lng":-71.083423
+  },
+  {
+    "line":"orange",
+    "name":"Ruggles",
+    "lat":42.336377,
+    "lng":-71.088961
+  },
+  {
+    "line":"orange",
+    "name":"Roxbury Crossing",
+    "lat":42.331397,
+    "lng":-71.095451
+  },
+  {
+    "line":"orange",
+    "name":"Jackson Square",
+    "lat":42.323132,
+    "lng":-71.099592
+  },
+  {
+    "line":"orange",
+    "name":"Stony Brook",
+    "lat":42.317062,
+    "lng":-71.104248
+  },
+  {
+    "line":"orange",
+    "name":"Green Street",
+    "lat":42.310525,
+    "lng":-71.10741400000001
+  },
+  {
+    "line":"orange",
+    "name":"Forest Hills",
+    "lat":42.300523,
+    "lng":-71.113686
   },
   {
     "line":"red",
