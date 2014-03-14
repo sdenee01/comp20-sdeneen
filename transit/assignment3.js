@@ -57,7 +57,7 @@ function readData()
             color = data.line;
 
             stopsRequest = new XMLHttpRequest();
-            stopsRequest.open("GET", "stations.json", true);
+            stopsRequest.open("GET", "https://github.com/tuftsdev/comp20-sdeneen/blob/gh-pages/transit/stations.json", true);
             stopsRequest.send(null);
             stopsRequest.onreadystatechange = showTStops();
         }
