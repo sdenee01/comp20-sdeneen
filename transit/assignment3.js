@@ -73,7 +73,7 @@ function showTStops()
     if (stopsRequest.readyState == 4) {
         if (stopsRequest.status == 200) {
             stops = JSON.parse(stopsRequest.responseText);
-            for (var i = 0; i <= stops.length; i++) {
+            for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
                     LatLng = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                     var marker = new google.maps.Marker({
