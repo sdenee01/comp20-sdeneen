@@ -88,6 +88,7 @@ function showTStops()
                     counter++;
                 }
             }
+            console.log(LatLngs);
             polyline = new google.maps.Polyline({
                 path: LatLngs,
                 geodesic: true,
