@@ -2,6 +2,7 @@
 //orange line, and index 2 for red line
 
 infowindow = new google.maps.InfoWindow();
+yourLocContent = "";
 
 google.maps.event.addDomListener(window, 'load', getMyLocation);
 
@@ -25,7 +26,7 @@ function getMyLocation()
             var marker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
-                title: "You are here"
+                title: "You are here!"
             });
             var infowindow = new google.maps.InfoWindow({
                 content: "You are here!"
@@ -79,10 +80,7 @@ function showTStops()
             LatLngs2 = new Array();
             var counter = 0;
             var counter2 = 0;
-            var image = {
-                url: "MBTA_Logo.jpg",
-                size: new google.maps.Size(20, 32)
-            }
+            var image = "MBTA_Logo_small.jpg";
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
                     if (color == "red") {
@@ -166,7 +164,7 @@ function showTStops()
             }
 
 
-
+            var min = 0;
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
                     content = "<h1>" + this.title + "</h1>";
@@ -182,6 +180,7 @@ function showTStops()
                     content += '</table>';
                     infowindow.setContent(content);
                     infowindow.open(map, this);
+
 
                 });
             }
