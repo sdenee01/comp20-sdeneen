@@ -89,22 +89,25 @@ function showTStops()
                         else if (i == 11) {
                             LatLngs2[counter2] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                             LatLngs[counter] = LatLngs2[counter2];
+                            counter++;
+                            counter2++;
                         }
                         else {
                             LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                            counter++;
                         }
                     }
                     else {
                         LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                        counter++;
                     }
 
-                    
+
                     markers[i] = new google.maps.Marker({
                         position: LatLngs[counter],
                         map: map,
                         title: stops[i].name
                     });
-                    counter++;
                 }
             }
             if (color == "blue") {
