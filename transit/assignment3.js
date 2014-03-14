@@ -76,10 +76,29 @@ function showTStops()
             stops = JSON.parse(stopsRequest.responseText);
             markers = new Array(stops.length);
             LatLngs = new Array();
+            LatLngs2 = new Array();
             var counter = 0;
+            var counter2 = 0;
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
-                    LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                    if (color == "red") {
+                        if (i > 16) {
+                            LatLngs2[counter2] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                            counter2++;
+                        }
+                        else if (i == 11) {
+                            LatLngs2[counter2] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                            LatLngs[counter] = LatLngs2[counter2];
+                        }
+                        else {
+                            LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                        }
+                    }
+                    else {
+                        LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                    }
+
+                    }
                     markers[i] = new google.maps.Marker({
                         position: LatLngs[counter],
                         map: map,
@@ -92,7 +111,7 @@ function showTStops()
                 polyline = new google.maps.Polyline({
                     path: LatLngs,
                     strokeColor: '#0000FF',
-                    strokeWeight: 2
+                    strokeWeight: 5
                 });
 
                 polyline.setMap(map);
@@ -101,11 +120,28 @@ function showTStops()
                 polyline = new google.maps.Polyline({
                     path: LatLngs,
                     strokeColor: '#FFA500',
-                    strokeWeight: 2
+                    strokeWeight: 5
                 });
 
                 polyline.setMap(map);
             }
+            else if (color == "red") {
+                polyline = new google.maps.Polyline({
+                    path: LatLngs,
+                    strokeColor: '#FF0000',
+                    strokeWeight: 5
+                });
+                polyline2 = new google.maps.Polyline({
+                    path: LatLngs2,
+                    strokeColor: '#FF0000',
+                    strokeWeight: 5
+                });
+
+                polyline.setMap(map);
+                polyline2.setMap(map);
+            }
+
+
 
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
