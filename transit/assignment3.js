@@ -59,7 +59,7 @@ function readData()
             stopsRequest = new XMLHttpRequest();
             stopsRequest.open("GET", "stations.json", true);
             stopsRequest.send(null);
-            stopsRequest.onreadystatechange = showTStops();
+            stopsRequest.onreadystatechange = showTStops;
         }
         else {
             //HANDLE ERROR HERE! (add to infowindow?)
