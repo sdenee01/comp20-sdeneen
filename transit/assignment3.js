@@ -161,8 +161,6 @@ function showTStops()
 
                 polyline.setMap(map);
                 polyline2.setMap(map);
-
-                getMinStation();
             }
 
 
@@ -185,6 +183,7 @@ function showTStops()
                     infowindow.open(map, this);
                 });
             }
+            getMinStation();
         }
     }
 }
