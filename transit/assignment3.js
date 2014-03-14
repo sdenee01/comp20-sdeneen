@@ -19,7 +19,7 @@ function getMyLocation()
                 center: myLatLng,
                 zoom: 8
             };
-            var map = new google.maps.Map(document.getElementById("map-canvas"),
+            map = new google.maps.Map(document.getElementById("map-canvas"),
                                           mapOptions);
             var marker = new google.maps.Marker({
                 position: myLatLng,
