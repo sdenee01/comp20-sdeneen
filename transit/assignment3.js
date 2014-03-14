@@ -91,8 +91,6 @@ function showTStops()
                     content = "<h1>" + this.title + "</h1>";
                     for (var i = 0; i < data["schedule"].length; i++) {
                         for (var j = 0; j < data["schedule"][i]["Predictions"].length; j++) {
-                            console.log(data["schedule"][i]["Predictions"][j]);
-                            console.log(this.title);
                             if (data["schedule"][i]["Predictions"][j].Stop == this.title) {
                                 //FOUND A MATCH TO ADD TO TABLE
                                 createInfoWindowTable(i, j);
@@ -124,7 +122,7 @@ function showTStops()
     }
 }
 
-function createInfoWindowTable(j)
+function createInfoWindowTable(i, j)
 {
     content += '<tr><td>' + data['line'] + '</td><td>' + data["schedule"][i]["TripID"] +
                '</td><td>' + data["schedule"][i]["Destination"] + '</td><td>' +
