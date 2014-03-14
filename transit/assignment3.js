@@ -85,16 +85,14 @@ function showTStops()
                     });
                 }
             }
-            console.log("MARKERS: ");
-            console.log(markers);
-            console.log("DATA: ");
-            console.log(data);
 
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
                     content = "<h1>" + this.title + "</h1>";
                     for (var i = 0; i < data.length; i++) {
                         for (var j = 0; j < data[i]["schedule"]["Predictions"].length; j++) {
+                            console.log(data[i]["schedule"]["Predictions"][j]);
+                            console.log(this.title);
                             if (data[i]["schedule"]["Predictions"][j].Stop == this.title) {
                                 //FOUND A MATCH TO ADD TO TABLE
                                 createInfoWindowTable(i, j);
