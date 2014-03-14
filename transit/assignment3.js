@@ -89,14 +89,12 @@ function showTStops()
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
                     content = "<h1>" + this.title + "</h1>";
-                    for (var i = 0; i < data.length; i++) {
-                        for (var j = 0; j < data[i]["schedule"]["Predictions"].length; j++) {
-                            console.log(data[i]["schedule"]["Predictions"][j]);
-                            console.log(this.title);
-                            if (data[i]["schedule"]["Predictions"][j].Stop == this.title) {
-                                //FOUND A MATCH TO ADD TO TABLE
-                                createInfoWindowTable(i, j);
-                            }
+                    for (var j = 0; j < data["schedule"]["Predictions"].length; j++) {
+                        console.log(data["schedule"]["Predictions"][j]);
+                        console.log(this.title);
+                        if (data["schedule"]["Predictions"][j].Stop == this.title) {
+                            //FOUND A MATCH TO ADD TO TABLE
+                            createInfoWindowTable(j);
                         }
                     }
 
@@ -124,11 +122,11 @@ function showTStops()
     }
 }
 
-function createInfoWindowTable(i, j)
+function createInfoWindowTable(j)
 {
-    content += '<tr><td>' + data[i]['line'] + '</td><td>' + data[i]["schedule"]["TripID"] +
-               '</td><td>' + data[i]["schedule"]["Destination"] + '</td><td>' +
-                data[i]["schedule"]["Predictions"][j].Seconds + '</td></tr>';
+    content += '<tr><td>' + data['line'] + '</td><td>' + data["schedule"]["TripID"] +
+               '</td><td>' + data["schedule"]["Destination"] + '</td><td>' +
+                data["schedule"]["Predictions"][j].Seconds + '</td></tr>';
     content += '</table>';
 
 }
