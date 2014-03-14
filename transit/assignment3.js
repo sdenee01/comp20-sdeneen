@@ -84,30 +84,43 @@ function showTStops()
                     if (color == "red") {
                         if (i > 16) {
                             LatLngs2[counter2] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                            markers[i] = new google.maps.Marker({
+                                position: LatLngs2[counter2],
+                                map: map,
+                                title: stops[i].name
+                            });
                             counter2++;
                         }
                         else if (i == 11) {
                             LatLngs2[counter2] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                             LatLngs[counter] = LatLngs2[counter2];
+                            markers[i] = new google.maps.Marker({
+                                position: LatLngs[counter],
+                                map: map,
+                                title: stops[i].name
+                            });
                             counter++;
                             counter2++;
                         }
                         else {
                             LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                            markers[i] = new google.maps.Marker({
+                                position: LatLngs[counter],
+                                map: map,
+                                title: stops[i].name
+                            });
                             counter++;
                         }
                     }
                     else {
                         LatLngs[counter] = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                        markers[i] = new google.maps.Marker({
+                            position: LatLngs[counter],
+                            map: map,
+                            title: stops[i].name
+                        });
                         counter++;
                     }
-
-
-                    markers[i] = new google.maps.Marker({
-                        position: LatLngs[counter],
-                        map: map,
-                        title: stops[i].name
-                    });
                 }
             }
             if (color == "blue") {
