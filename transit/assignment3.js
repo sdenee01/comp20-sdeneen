@@ -222,8 +222,7 @@ function haversine(lat1, lon1, lat2, lon2)
     var lat1 = 42.806911; 
     var lon1 = -71.290611; 
 
-    var R = 6371; // km 
-    //has a problem with the .toRad() method below.
+    var R = 3958.8; // miles
     var x1 = lat2-lat1;
     var dLat = x1.toRad();  
     var x2 = lon2-lon1;
