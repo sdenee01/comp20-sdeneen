@@ -85,7 +85,7 @@ function showTStops()
                         title: stops[i].name
                     });
                     polyline = new google.maps.Polyline({
-                        path: LatLngs;
+                        path: LatLngs,
                         geodesic: true,
                         strokeColor: '#FF0000',
                         strokeWeight: 2
