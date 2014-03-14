@@ -79,6 +79,7 @@ function showTStops()
             LatLngs2 = new Array();
             var counter = 0;
             var counter2 = 0;
+            var image = "MBTA_Logo";
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
                     if (color == "red") {
@@ -88,7 +89,7 @@ function showTStops()
                                 position: LatLngs2[counter2],
                                 map: map,
                                 title: stops[i].name
-                                icon: "MBTA_Logo";
+                                icon: image;
                             });
                             counter2++;
                         }
@@ -99,7 +100,7 @@ function showTStops()
                                 position: LatLngs[counter],
                                 map: map,
                                 title: stops[i].name
-                                icon: "MBTA_Logo";
+                                icon: image;
                             });
                             counter++;
                             counter2++;
@@ -110,7 +111,7 @@ function showTStops()
                                 position: LatLngs[counter],
                                 map: map,
                                 title: stops[i].name
-                                icon: "MBTA_Logo";
+                                icon: image;
                             });
                             counter++;
                         }
@@ -121,7 +122,7 @@ function showTStops()
                             position: LatLngs[counter],
                             map: map,
                             title: stops[i].name
-                            icon: "MBTA_Logo";
+                            icon: image;
                         });
                         counter++;
                     }
