@@ -202,8 +202,10 @@ function getMinStation()
         distance = haversine(myLatLng.latitude, myLatLng.longitude, markers[m].getPosition.latitude, markers[m].getPosition.longitude);
 
         if (distance < min) {
-        min = distance;
-        minStation = markers[m].title;
+            console.log(markers[m].title + " : " + distance);
+            console.log(min);
+            min = distance;
+            minStation = markers[m].title;
         }
     }
     yourLocContent = "The closest T station to you is " + minStation + " which is about " + min + " miles away";
