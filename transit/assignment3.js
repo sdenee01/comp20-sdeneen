@@ -59,7 +59,7 @@ function readData()
             stopsRequest = new XMLHttpRequest();
             stopsRequest.open("GET", "stations.json", true);
             stopsRequest.send(null);
-            //stopsRequest.onreadystatechange = showTStops;
+            stopsRequest.onreadystatechange = showTStops;
         }
         else {
             //HANDLE ERROR HERE! (add to infowindow?)
@@ -72,7 +72,8 @@ function showTStops()
 {
     if (stopsRequest.readyState == 4) {
         if (stopsRequest.status == 200) {
-            markers = new Array(53);
+            markers = new Array(stops.length);
+            infowindows = new Array(stops.length);
             stops = JSON.parse(stopsRequest.responseText);
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
@@ -83,11 +84,11 @@ function showTStops()
                         title: stops[i].name
                     });
                 
-                    var infowindow = new google.maps.InfoWindow({
+                    infowindows[i] = new google.maps.InfoWindow({
                         content: stops[i].name
                     });
                     google.maps.event.addListener(markers[i], 'click', function() {
-                        infowindow.open(map,markers[i]);
+                        infowindows[i].open(map, markers[i]);
                     });
                 }
             }
