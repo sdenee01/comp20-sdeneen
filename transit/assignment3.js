@@ -2,6 +2,8 @@
 //orange line, and index 2 for red line
 
 infowindow = new google.maps.InfoWindow();
+infowindow2 = new google.maps.InfoWindow();
+
 yourLocContent = "";
 
 google.maps.event.addDomListener(window, 'load', getMyLocation);
