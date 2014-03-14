@@ -198,6 +198,7 @@ function createInfoWindowTable(i, j)
 
 function getMinStation()
 {
+    /*
     if (color != "red") {
         for (var i in LatLngs) {
             distance = haversine(myLatLng.latitude, myLatLng.longitude, LatLngs[i].latitude, LatLngs[i].longitude);
@@ -216,11 +217,12 @@ function getMinStation()
             }
         }
     }
-    /*
+    */
+    
     for (var m in markers) {
         console.log(markers[m].getPosition.latitude);
         console.log(markers[m].getPosition.longitude);
-        distance = haversine(myLatLng.latitude, myLatLng.longitude, markers[m].getPosition().latitude, markers[m].getPosition().longitude);
+        distance = haversine(myLatLng.latitude, myLatLng.longitude, markers[m].position.lat(), markers[m].position().lng());
         console.log(markers[m].title + " : " + distance);
         console.log(min);
         if (distance < min) {
@@ -229,7 +231,6 @@ function getMinStation()
         }
     }
 
-    */
     yourLocContent = "The closest T station to you is " + minStation + " which is about " + min + " miles away";
     infowindow.setContent(yourLocContent);
     infowindow.open(map, marker);
