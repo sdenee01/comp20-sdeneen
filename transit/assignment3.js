@@ -207,7 +207,7 @@ function getMinStation()
         minStation = markers[m].title;
         }
     }
-    yourLocContent = "The closest T station to you is " + minStation + " which is about " + min + " km away";
+    yourLocContent = "The closest T station to you is " + minStation + " which is about " + min + " miles away";
     infowindow.setContent(yourLocContent);
 }
 
