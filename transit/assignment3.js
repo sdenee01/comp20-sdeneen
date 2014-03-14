@@ -86,7 +86,7 @@ function showTStops()
                 endIndex = 52;
 
             }
-            for (int i = startIndex; i <= endIndex; i++) {
+            for (var i = startIndex; i <= endIndex; i++) {
                 LatLng = new google.maps.LatLng(stops[i].lat, stops[i].lng);
                 var marker = new google.maps.Marker({
                     position: LatLng,
