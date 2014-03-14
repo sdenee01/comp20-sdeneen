@@ -200,7 +200,7 @@ function createInfoWindowTable(i, j)
 function getMinStation()
 {
     for (var m in markers) {
-        distance = haversine(myLatLng.latitude, myLatLng.longitude, markers[m].getPosition.latitude, markers[m].getPosition.longitude;
+        distance = haversine(myLatLng.latitude, myLatLng.longitude, markers[m].getPosition.latitude, markers[m].getPosition.longitude);
 
         if (distance < min) {
         min = distance;
