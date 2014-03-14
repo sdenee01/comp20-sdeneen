@@ -25,10 +25,10 @@ function getMyLocation()
                 position: myLatLng,
                 map: map,
                 title: "You are here"
-            })
+            });
             var infowindow = new google.maps.InfoWindow({
                 content: "You are here!"
-            })
+            });
             infowindow.open(map, marker);
         });
     }
@@ -73,9 +73,35 @@ function showTStops()
     if (stopsRequest.readyState == 4) {
         if (stopsRequest.status == 200) {
             stops = JSON.parse(stopsRequest.responseText);
-            console.log(stops);
+            if (color == "blue") {
+                startIndex = 0;
+                endIndex = 11;
+            }
+            else if (color == "orange") {
+                startIndex = 12;
+                endIndex = 30;
+            }
+            else if (color == "red") {
+                startIndex = 31;
+                endIndex = 52;
+
+            }
+            for (int i = startIndex; i <= endIndex; i++) {
+                LatLng = new google.maps.LatLng(stops[i].lat, stops[i].lng);
+                var marker = new google.maps.Marker({
+                    position: LatLng,
+                    map: map,
+                    title: stops[i].name
+                });
+            
+                var infowindow = new google.maps.InfoWindow({
+                    content: stops[i].name
+                });
+                infowindow.open(map, marker);
+            }
         }
     }
+}
     
 
 
