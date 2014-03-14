@@ -89,6 +89,7 @@ function showTStops()
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
                     content = "<h1>" + this.title + "</h1>";
+                    content += '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
                     for (var i = 0; i < data["schedule"].length; i++) {
                         for (var j = 0; j < data["schedule"][i]["Predictions"].length; j++) {
                             if (data["schedule"][i]["Predictions"][j].Stop == this.title) {
@@ -97,6 +98,7 @@ function showTStops()
                             }
                         }
                     }
+                    content += '</table>';
 
 
                     /*
@@ -128,5 +130,4 @@ function createInfoWindowTable(i, j)
     content += '<tr><td>' + data['line'] + '</td><td>' + data["schedule"][i]["TripID"] +
                '</td><td>' + data["schedule"][i]["Destination"] + '</td><td>' +
                 data["schedule"][i]["Predictions"][j].Seconds + '</td></tr>';
-    content += '</table>';
 }
