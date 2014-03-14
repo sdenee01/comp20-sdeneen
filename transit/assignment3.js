@@ -81,7 +81,7 @@ function showTStops()
             var counter2 = 0;
             var image = {
                 url: "MBTA_Logo.jpg",
-                size: new google.maps.Size(20, 32);
+                size: new google.maps.Size(20, 32)
             }
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
