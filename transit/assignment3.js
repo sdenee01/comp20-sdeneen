@@ -179,8 +179,8 @@ function showTStops()
                         }
                     }
                     content += '</table>';
-                    infowindow.setContent(content);
-                    infowindow.open(map, this);
+                    infowindow2.setContent(content);
+                    infowindow2.open(map, this);
                 });
             }
             getMinStation();
