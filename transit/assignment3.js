@@ -1,6 +1,7 @@
 //An array with index 0 holding a list of blue line stops, index 1 for
 //orange line, and index 2 for red line
 
+infowindow = new google.maps.InfoWindow();
 
 google.maps.event.addDomListener(window, 'load', getMyLocation);
 
@@ -74,7 +75,6 @@ function showTStops()
         if (stopsRequest.status == 200) {
             stops = JSON.parse(stopsRequest.responseText);
             markers = new Array(stops.length);
-            infowindows = new Array(stops.length);
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
                     LatLng = new google.maps.LatLng(stops[i].lat, stops[i].lng);
@@ -84,9 +84,7 @@ function showTStops()
                         title: stops[i].name
                     });
                 
-                    infowindows[i] = new google.maps.InfoWindow({
-                        content: stops[i].name
-                    });
+                    infowindow.setContent(stops[i].name);
                     google.maps.event.addListener(markers[i], 'click', function(i) {
                         infowindows[i].open(map, markers[i]);
                     });
