@@ -63,7 +63,7 @@ function readData()
         }
         else {
             //HANDLE ERROR HERE! (add to infowindow?)
-            alert("Bad Data!");
+            console.log("BAD DATA");
         }
     }
 }
