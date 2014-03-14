@@ -113,6 +113,7 @@ function showTStops()
                         content += "<p>No schedule of upcoming trains for this station.</p>";
                     }
                     */
+                    console.log(content);
                     infowindow.setContent(content);
                     infowindow.open(map, this);
 
@@ -128,5 +129,4 @@ function createInfoWindowTable(i, j)
                '</td><td>' + data["schedule"][i]["Destination"] + '</td><td>' +
                 data["schedule"][i]["Predictions"][j].Seconds + '</td></tr>';
     content += '</table>';
-
 }
