@@ -23,7 +23,7 @@ function getMyLocation()
             };
             map = new google.maps.Map(document.getElementById("map-canvas"),
                                           mapOptions);
-            var marker = new google.maps.Marker({
+            marker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
                 title: "You are here!"
@@ -208,6 +208,7 @@ function getMinStation()
     }
     yourLocContent = "The closest T station to you is " + minStation + " which is about " + min + " miles away";
     infowindow.setContent(yourLocContent);
+    infowindow.open(map, marker);
 }
 
 function haversine(lat1, lon1, lat2, lon2)
