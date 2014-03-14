@@ -87,14 +87,12 @@ function showTStops()
             }
             for (var m in markers) {
                 google.maps.event.addListener(markers[m], 'click', function() {
-                    content = "<h1>" + markers[m].title + "</h2>";
+                    content = "<h1>" + markers[m].title + "</h1>";
                     if (data.length > 0) {
                         content = '<table id="schedule"><tr><th>Line</th><th>Trip #</th><th>Direction</th><th>Time Remaining</th></tr>';
-                        for (var i = 0; i < data.length; i++) {
-                            for (var j = 0; j < data[i]["schedule"]["Predictions"].length; j++) {
-                                if (data[i].line == color && data[i]["schedule"]["Predictions"][j].Stop == markers[m].title) {
-                                    createInfoWindowTable(i, j);
-                                }
+                        for (var j = 0; j < data[i]["schedule"]["Predictions"].length; j++) {
+                            if (data[m].line == color && data[m]["schedule"]["Predictions"][j].Stop == markers[m].title) {
+                                createInfoWindowTable(m, j);
                             }
                         }
                     }
