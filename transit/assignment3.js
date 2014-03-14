@@ -75,7 +75,7 @@ function showTStops()
         if (stopsRequest.status == 200) {
             stops = JSON.parse(stopsRequest.responseText);
             markers = new Array(stops.length);
-            LatLngs = new Array(stops.length);
+            LatLngs = new Array();
             var counter = 0;
             for (var i = 0; i < stops.length; i++) {
                 if (stops[i].line == color) {
