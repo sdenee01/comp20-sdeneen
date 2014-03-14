@@ -87,11 +87,14 @@ function showTStops()
                     infowindows[i] = new google.maps.InfoWindow({
                         content: stops[i].name
                     });
-                    google.maps.event.addListener(markers[i], 'click', function(i) {
-                        infowindows[i].open(map, markers[i]);
-                    });
+                    google.maps.event.addListener(markers[i], 'click', openWindow(i));
                 }
             }
         }
     }
+}
+
+
+function openWindow(i) {
+    infowindows[i].open(map, markers[i]);
 }
