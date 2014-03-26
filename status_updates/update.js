@@ -5,23 +5,26 @@ function init() {
 	updateStatus();
 	var inputBox = document.getElementById("msg");
 	inputBox.onchange = function getMessage() {
-		store(inputBox);
+		store();
 		updateStatus();
 		inputBox.value = "";
 	}
 }
 
-function store(input)
+function store()
 {
-	localStorage[new Date().getTime()] = {"timeStamp": getDateAndTime(),
-										  "msg": input.value};
+	var input = document.getElementById("msg");
+	var message = getDateAndTime() + " - " + input.value;
+	var time = new Date().getTime();
+	localStorage.setItem(time, message);
 }
 
 function updateStatus() {
 	var output = document.getElementById("status");
+	output.innerHTML = "";
 	for (key in localStorage) {
 		var p = document.createElement("p");
-		var message = localStorage[key].timeStamp + " - " + localStorage[key].msg;
+		var message = localStorage.getItem(key);
 		p.appendChild(document.createTextNode(message));
 
 		var first = output.firstChild;
