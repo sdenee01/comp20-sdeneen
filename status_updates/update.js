@@ -2,21 +2,31 @@ onload = init;
 
 
 function init() {
+	updateStatus();
 	var inputBox = document.getElementById("msg");
 	inputBox.onchange = function getMessage() {
+		store(inputBox);
 		updateStatus();
 		inputBox.value = "";
 	}
 }
 
-function updateStatus() {
-	var p = document.createElement("p");
-	var message = getDateAndTime() + " - " + document.getElementById("msg").value;
-	p.appendChild(document.createTextNode(message));
+function store(input)
+{
+	localStorage[new Date().getTime()] = {"timeStamp": getDateAndTime(),
+										  "msg": input.value};
+}
 
+function updateStatus() {
 	var output = document.getElementById("status");
-	var first = output.firstChild;
-	output.insertBefore(p, first);
+	for (key in localStorage) {
+		var p = document.createElement("p");
+		var message = localStorage[key].timeStamp + " - " + localStorage[key].msg;
+		p.appendChild(document.createTextNode(message));
+
+		var first = output.firstChild;
+		output.insertBefore(p, first);
+	}
 }
 
 
