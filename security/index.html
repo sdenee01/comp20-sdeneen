@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Security Report</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Security Report for 2048 Gamecenter</h1>
+<h2>Introduction</h2>
+<p>The product in question is a gamecenter for 2048, a game created by Gabriele Cirulli. This web application was developed by Rob Lasell for the final assignment of COMP 20 at Tufts University. It allows users to post their scores to the server and it keeps track of their high scores. This application is prone to several different security vulnerabilities. My job is to document these security issues and to suggest ways to improve it so that it is more secure.</p>
+<h2>Methodology</h2>
+<p>I first tested the application for vulnerabilities using black-box testing, which consists of attempting to break the scorecenter without actually looking at the code by using known methods such as javascript injection. I did this locally using simple curl commands to post to the 2048 gamecenter. Then, to uncover further security issues, I took a look at the code and used the errors that I saw in the code itself.</p>
+<h2>Abstract of Findings</h2>
+<p>The biggest issues in this web application result from trusting the user's input.</p>
+<h2>Issues Found</h2>
+<ol>
+	<li><p>Cross Site Scripting<br /></p>
+	<ul>
+		<li>This issue was found on the homepage('/'), since this is the page that draws on information from the database.</li>
+		<li>This is an issue of high importance since it can cause terrible things to happen to the webpage: people can redirect to other webapages, they can add links, they can delete what is on the page... the list goes on and on.</li>
+		<li>I found this vulnerability by using a curl command to post javascript code to the gamecenter. This is the command that I typed into the terminal: curl --data "username=&lt;script&gt;window.location='http://4chan.org';&lt;/script&gt;&amp;score=4&amp;grid=null" http://localhost:3000/submit.json<br />The screenshots below show what happens when the web app is opened after javascript injection: it redirects to a different webpage. <p></p>About to enter site:
+		<img src="about_to_enter.png" alt="about to go to site"/><p><br /></p>After enter is pressed:
+		<img src="entered.png" alt="after enter is pressed" /><p><br /></p></li>
+		<li><p>This security issue can be resolved by escaping the user's input before it is stored into the database. Here is some sample code that functions to do exactly that: <br />
+			<code>
+			function escapeHTML (unsafe_str) { <br />
+    			&nbsp;&nbsp;return unsafe_str <br />
+      			&nbsp;&nbsp;&nbsp;&nbsp;.replace(/&amp;/g, '&amp;amp;') <br />
+      			&nbsp;&nbsp;&nbsp;&nbsp;.replace(/&lt;/g, '&amp;lt;') <br />
+      			&nbsp;&nbsp;&nbsp;&nbsp;.replace(/&gt;/g, '&amp;gt;') <br />
+      			&nbsp;&nbsp;&nbsp;&nbsp;.replace(/\"/g, '&amp;quot;') <br />
+      			&nbsp;&nbsp;&nbsp;&nbsp;.replace(/\'/g, '&amp;#39;');  <br />
+      		}
+      		</code><br /></p></li>
+	</ul></li>
+	<li><p>Cross Origin Resource Sharing<br /></p>
+	<ul>
+		<li>This issue can result in invalid data which affects the home page ('/') and the scores.json page.</li>
+		<li>This is an issue of medium importance. This application's purpose is to keep track of high scores, but this system is inherently flawed if it accepts requests from any source. This allows people to POST arbitrary scores from sources other than the 2048 game itself, which completely renders the gamecenter useless. This is not as important as the XSS issue since it doesn't allow for malicious scripts but only affects how well the gamecenter does its job of keeping track of the high scores.</li>
+		<li>I found this vulnerability by looking at the code for the POST request. Here is the offending code: <br />
+			<code>app.post('/submit.json', function(request, response) { <br />
+  					&nbsp;&nbsp;response.header("Access-Control-Allow-Origin", "*"); <br />
+  					&nbsp;&nbsp;response.header("Access-Control-Allow-Headers", "X-Requested-With"); <br />
+  					&nbsp;&nbsp;...</code></li>
+		<li>This security issue can be resolved by replacing the asterisk in the first response.header line with the URI of the 2048 game that contains a post request to this gamecenter so that highscores can only be posted from the game itself.<p><br /></p></li>
+	</ul></li>
+	<li><p>Data limit for Heroku free database<br /></p>
+	<ul>
+		<li>If the database was full (5 MB max for Heroku), no more scores could be added, whih destroys functionality of the gamecenter. A user could write a script to continuously add to the database and completely fill it up, thereby rendering the gamecenter useless. This issue could be seen on both the home page and the scores.json page as they would never change once the database was full.</li>
+		<li>This is an issue of medium importance, as it has the same effect as the previous issue in that it invalidates the high scores.</li>
+		<li>I found this vulnerability by searching the web for Heroku data limits. See this stack overflow page for more information on the <a href="http://stackoverflow.com/questions/4536326/heroku-free-account-limited">limits of a free Heroku account</a>.</li>
+		<li>This security issue can be resolved by upgrading the heroku account to obtain more database space or to move the application off Heroku to a bought domain and pay for an alternate database service.</li>
+	</ul></li>
+</ol>
+<h2>Conclusion</h2>
+	<p>There are several security vulnerabilities associated with this 2048 gamecenter. The most critical issue is the allowance of cross site scripting, which allows users to inject malicious code into the database. The majority of the solutions are fairly simple, and the biggest problems can be solved without any cost. However, the issue of database space requires some form of payment to fix. Heroku offers Heroku Postgres, which has a variety of different <a href="https://www.heroku.com/pricing">options</a> for cost and space depending on one's budget.
+</body>
+
+</html>
